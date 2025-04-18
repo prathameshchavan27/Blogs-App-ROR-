@@ -1,0 +1,5 @@
+<h1>Article details</h1>
+<h3>Title: </h3><%= @article.title %>
+<h3>Description: </h3><%= @article.description%><br>
+<%= link_to "Edit", edit_article_path(@article), class: "btn btn-update" %> | <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" %> | <%= link_to "Back", articles_path%>
+<%# https://youtu.be/Ti5vfu9arXQ?si=38PXwT8ZonG-A8b_ %>
