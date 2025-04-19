@@ -1,5 +1,87 @@
-<h1>Article details</h1>
-<h3>Title: </h3><%= @article.title %>
-<h3>Description: </h3><%= @article.description%><br>
-<%= link_to "Edit", edit_article_path(@article), class: "btn btn-update" %> | <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" %> | <%= link_to "Back", articles_path%>
+<style>
+  .article-details {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 24px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .article-details h1 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .article-details h3 {
+    margin-top: 16px;
+    margin-bottom: 4px;
+    color: #444;
+  }
+
+  .article-details p {
+    font-size: 1.1rem;
+    color: #222;
+  }
+
+  .btn-group {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 0 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-update {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .btn-update:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-delete {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  .btn-delete:hover {
+    background-color: #a71d2a;
+  }
+
+  .btn-back {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  .btn-back:hover {
+    background-color: #545b62;
+  }
+</style>
+
+<div class="article-details">
+  <h1>Article Details</h1>
+
+  <h3>Title:</h3>
+  <p><%= @article.title %></p>
+
+  <h3>Description:</h3>
+  <p><%= @article.description %></p>
+
+  <div class="btn-group">
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-update" %>
+    <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" %>
+    <%= link_to "Back", articles_path, class: "btn btn-back" %>
+  </div>
+</div>
+
 <%# https://youtu.be/Ti5vfu9arXQ?si=38PXwT8ZonG-A8b_ %>
