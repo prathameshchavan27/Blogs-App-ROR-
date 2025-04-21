@@ -100,7 +100,7 @@
 
 <div class="page-wrapper">
   <div class="styled-form">
-    <h2 class="form-title">Create Your Account</h2>
+    <h2 class="form-title"><%=(@user.new_record? ? 'Create Your Account':'Edit your profile')%></h2>
 
     <%= render 'shared/errors', obj: @user %>
 
@@ -121,7 +121,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit 'Sign Up', class: 'btn-submit' %>
+        <%= f.submit(@user.new_record? ? 'Sign Up':'Update', class: 'btn-submit' )%>
       </div>
     <% end %>
   </div>
