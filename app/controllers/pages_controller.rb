@@ -3,4 +3,3 @@ class PagesController < ApplicationController
       @articles = Article.order(created_at: :desc)
     end
 end
-  
