@@ -1,0 +1,10 @@
+<% if obj && obj.errors.any? %>
+  <div class="error-box">
+    <h3>Oops! Please fix the following in <%=obj.class.name.downcase %>:</h3>
+    <ul>
+      <% obj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

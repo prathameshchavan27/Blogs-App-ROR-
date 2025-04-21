@@ -60,16 +60,7 @@
   }
 </style>
 
-<% if @article.errors.any? %>
-  <div class="error-box">
-    <h3>Oops! Please fix the following:</h3>
-    <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 
 <%= form_for @article, html: { class: 'styled-form' } do |f| %>
   <div class="form-group">

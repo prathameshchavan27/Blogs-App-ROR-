@@ -1,0 +1,128 @@
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+  }
+
+  .styled-form {
+    width: 100%;
+    max-width: 500px;
+    padding: 32px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .form-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #222;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fdfdfd;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .form-control:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+    outline: none;
+  }
+
+  .btn-submit {
+    display: inline-block;
+    width: 100%;
+    background-color: #4a90e2;
+    color: #fff;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    background-color: #3a78c2;
+  }
+
+  .error-box {
+    background-color: #ffecec;
+    border: 1px solid #ff4d4d;
+    padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+  }
+
+  .error-box h3 {
+    margin: 0 0 10px;
+    color: #d8000c;
+    font-weight: bold;
+  }
+
+  .error-box ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #b00020;
+  }
+</style>
+
+
+<div class="page-wrapper">
+  <div class="styled-form">
+    <h2 class="form-title">Create Your Account</h2>
+
+    <%= render 'shared/errors', obj: @user %>
+
+    <%= form_for @user, html: { class: '' } do |f| %>
+      <div class="form-group">
+        <%= f.label :username, class: 'form-label' %>
+        <%= f.text_field :username, class: 'form-control', placeholder: 'Enter username' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, class: 'form-label' %>
+        <%= f.email_field :email, class: 'form-control', placeholder: 'Enter email' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, class: 'form-label' %>
+        <%= f.password_field :password, class: 'form-control', placeholder: 'Choose a password' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Sign Up', class: 'btn-submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>

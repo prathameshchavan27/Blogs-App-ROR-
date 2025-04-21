@@ -1,0 +1,81 @@
+<style>
+.homepage-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.cta-button {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #3a78c2;
+}
+
+.recent-posts h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.article-preview {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.article-preview h3 {
+  margin: 0 0 10px;
+}
+
+.article-preview .author {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+</style>
+<div class="homepage-wrapper">
+  <div class="hero">
+    <h1 class="hero-title">Welcome to AlphaBlog</h1>
+    <p class="hero-subtitle">A simple and elegant blogging platform built with Rails</p>
+    <%= link_to 'Get Started', signup_path, class: 'cta-button' %>
+  </div>
+
+  <div class="recent-posts">
+    <h2>Recent Articles</h2>
+    <% @articles.limit(3).each do |article| %>
+      <div class="article-preview">
+        <h3><%= link_to article.title, article_path(article) %></h3>
+        <p><%= truncate(article.description, length: 100) %></p>
+        <span class="author">by <%= article.user.username %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
