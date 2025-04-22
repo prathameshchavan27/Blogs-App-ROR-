@@ -1,0 +1,25 @@
+<style>
+
+
+  .container {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+
+  .page-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 0;
+    font-size: 2rem;
+  }
+
+  
+</style>
+
+<div class="container">
+  <h1 class="page-title"><%=@user.username%>'s Profile</h1>
+  <%= avatar_for @user, size:400%>
+  <h3 class="page-title">Articles</h3>
+  <%= render 'articles/article' %>
+</div>
