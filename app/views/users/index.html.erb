@@ -85,25 +85,22 @@
 <table>
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
             <th>Author</th>
-            <th colspan='3'>Actions</th>
+            <th colspan='1'>Actions</th>
+            <th>Joined</th>
         </tr>
     </thead>
     <tbody>
-        <% @articles.each do |article| %>
+        <% @users.each do |user| %>
             <tr>
-                <td><%= article.title %></td>
-                <td><%= article.description %></td>
-                <td><%= link_to article.user.username, user_path(article.user) %></td>    
+                <td><%= link_to user.username ,user%></td>    
                 <td>
                     <div class="actions">
-                        <%= link_to "Update", edit_article_path(article), class: "btn btn-update" %>
-                        <%= button_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" %>
-                        <%= link_to "Show", article_path(article), class: "btn btn-primary"%>
+                        <%= link_to "View Profile", user, class: "btn btn-primary"%>
+                        <%= link_to "Edit Profile", edit_user_path(user),  class: "btn btn-update" %>
                     </div>
                 </td>
+                <td><%=user.created_at%></td>
             </tr>
         <% end %>
     </tbody>
