@@ -2,7 +2,7 @@
 
 
   .container {
-    max-width: 720px;
+    max-width: 720px; 
     margin: 40px auto;
     padding: 0 16px;
   }
@@ -19,7 +19,7 @@
 
 <div class="container">
   <h1 class="page-title"><%=@user.username%>'s Profile</h1>
-  <%= avatar_for @user, size:400%>
+  <%= avatar_for @user, size:200%>
   <h3 class="page-title">Articles</h3>
   <%= render 'articles/article' %>
 </div>
