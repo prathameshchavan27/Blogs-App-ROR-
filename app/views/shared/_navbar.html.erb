@@ -17,6 +17,21 @@
         <li class="nav-item">
           <%= link_to "Users", users_path, class: "nav-link" %>
         </li>
+        <% if logged_in? %>
+         <li class="nav-item">
+            <%= link_to current_user.username, user_path(current_user),  class: "btn btn-link nav-link", form_class: "d-inline" %>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-link nav-link", form_class: "d-inline" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Signup", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
 
     </div>
