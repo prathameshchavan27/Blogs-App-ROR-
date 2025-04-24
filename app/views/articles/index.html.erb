@@ -1,5 +1,9 @@
 <h1 style="text-align: center; font-family: Arial, sans-serif; margin-top: 30px;">Articles</h1>
 
+<div class="flickr_pagination" style="margin-left: 43%">
+    <%= will_paginate @articles, :container => false %>
+</div>
+
 <%= render 'article' %>
 
 <%= link_to "Create New Article", new_article_path, class: "create-btn" %>
