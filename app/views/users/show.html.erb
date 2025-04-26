@@ -20,6 +20,9 @@
 <div class="container">
   <h1 class="page-title"><%=@user.username%>'s Profile</h1>
   <%= avatar_for @user, size:200%>
+  <% if logged_in? && @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_path(@user), class: 'btn btn-update'%>
+  <% end %>
   <h3 class="page-title">Articles</h3>
   <%= render 'articles/article' %>
 </div>
