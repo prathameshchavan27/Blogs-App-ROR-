@@ -99,8 +99,10 @@
                 <td><%= link_to article.user.username, user_path(article.user) %></td>    
                 <td>
                     <div class="actions">
-                        <%= link_to "Update", edit_article_path(article), class: "btn btn-update" %>
-                        <%= button_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" %>
+                        <% if logged_in? && article.user == current_user %>
+                            <%= link_to "Update", edit_article_path(article), class: "btn btn-update" %>
+                            <%= button_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" %>
+                        <% end %>
                         <%= link_to "Show", article_path(article), class: "btn btn-primary"%>
                     </div>
                 </td>

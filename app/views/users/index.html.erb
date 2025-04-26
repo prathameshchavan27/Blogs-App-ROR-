@@ -97,7 +97,9 @@
                 <td>
                     <div class="actions">
                         <%= link_to "View Profile", user, class: "btn btn-primary"%>
-                        <%= link_to "Edit Profile", edit_user_path(user),  class: "btn btn-update" %>
+                        <% if logged_in? && user == current_user%>
+                            <%= link_to "Edit Profile", edit_user_path(user),  class: "btn btn-update" %>
+                        <% end %>
                     </div>
                 </td>
                 <td><%=user.created_at%></td>
