@@ -5,4 +5,5 @@ import { Turbo } from "@hotwired/turbo-rails"
 Turbo.session.drive = true
 
 import "controllers"
-
+import "@popperjs/core"
+import "bootstrap"
