@@ -97,8 +97,13 @@
                 <td>
                     <div class="actions">
                         <%= link_to "View Profile", user, class: "btn btn-primary"%>
-                        <% if logged_in? && user == current_user%>
-                            <%= link_to "Edit Profile", edit_user_path(user),  class: "btn btn-update" %>
+                        <% if logged_in? %>
+                            <% if user == current_user%>
+                                <%= link_to "Edit Profile", edit_user_path(user),  class: "btn btn-update" %>
+                            <% end %>
+                            <% if current_user.admin? %>
+                                <%= button_to "Delete User", user_path(user), class: "btn btn-outline-danger text-danger" , method: :delete, data: {confirm: "Are you sure ?"} %>
+                            <% end %>
                         <% end %>
                     </div>
                 </td>
