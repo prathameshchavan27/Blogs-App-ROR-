@@ -17,24 +17,26 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article  = Article.new(article_params)
+        @article = Article.new(article_params)
         @article.user = current_user
         if @article.save
-            flash[:notice] = "Article was created successfully"
-            redirect_to @article
+          flash[:notice] = "Article was created successfully"
+          redirect_to @article
         else
-            render "new"
+          render :new, status: :unprocessable_entity  # 👈 Add status
         end
-    end
-
+      end
+      
     def update
         if @article.update(article_params)
             flash[:notice] = "Update Successful"
+            redirect_to articles_path
         else
-            flash[:notice] = "Update failed"
+            flash[:alert] = "Update failed"
+            render :edit, status: :unprocessable_entity  # 👈 Add status
         end
-        redirect_to articles_path
     end
+      
 
     def destroy
         @article.destroy
@@ -48,7 +50,7 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-        params.require(:article).permit(:title, :description)
+        params.require(:article).permit(:title, :description,category_ids: [])
     end
 
     def require_same_user
