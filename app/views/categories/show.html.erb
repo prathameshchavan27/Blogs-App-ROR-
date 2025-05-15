@@ -1,9 +1,30 @@
 <style>
-.page-title {
+
+
+  .container {
+    max-width: 720px; 
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+
+  .page-title {
     text-align: center;
     color: #333;
     margin-bottom: 0;
     font-size: 2rem;
   }
-</style> 
+
+  
+</style>
+
+<div class="container">
 <h1 class="page-title">Category: <%=@category.name%></h1>
+  <% if logged_in? && current_user.admin? %>
+    <%= link_to "Edit category name", edit_category_path(@category), class: 'btn btn-update'%>
+  <% end %>
+  <h3 class="page-title">Articles</h3>
+  <div class="flickr_pagination" style="margin-left: 43%">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+  <%= render 'articles/article' %>
+</div>
