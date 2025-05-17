@@ -86,6 +86,7 @@
     <thead>
         <tr>
             <th>Category</th>
+            <th>Articles</th>
         </tr>
     </thead>
     <tbody>
@@ -93,6 +94,9 @@
             <tr>
                 <td>
                     <%= link_to category.name, category_path(category), class: "btn btn-primary"%>
+                </td>
+                <td class=" btn-outline-dark">
+                   <%= category.articles.count %>
                 </td>
             </tr>
         <% end %>
